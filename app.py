@@ -12,41 +12,82 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Shared Stylesheet for an Elegant, Modern Corporate Design
+# Shared Stylesheet blending #2F578A seamlessly into a clean corporate interface
 st.markdown("""
     <style>
-    /* Global Overrides */
-    .main-header { font-size: 2rem; color: #1e3a1e; font-weight: 700; margin-bottom: 1.5rem; }
-    .section-banner { background-color: #f8fafc; padding: 0.75rem 1.25rem; border-radius: 6px; border-left: 4px solid #1e3a1e; margin-bottom: 1.25rem; }
-    
-    /* Modern Dashboard Metric Cards */
-    .card-metric { background-color: #ffffff; padding: 1.2rem; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
-    .metric-num { font-size: 1.6rem; font-weight: 700; color: #0f172a; margin-top: 0.25rem; }
-    .metric-titl { font-size: 0.8rem; color: #64748b; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
-    
-    /* Sidebar Overhaul Fixes - Removing Narrow Overflows */
-    [data-testid="stSidebar"] {
-        min-width: 340px !important;
-        max-width: 340px !important;
+    /* Global Overrides & Professional Typography */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700&display=swap');
+    html, body, [data-testid="stAppViewContainer"] { 
+        font-family: 'Inter', sans-serif; 
+        background-color: #f4f6f9; 
     }
-    [data-testid="stSidebarUserContent"] {
-        padding: 1.5rem 1rem !important;
-    }
-    .sidebar-card { 
+    
+    .main-header { font-size: 2.2rem; color: #1e293b; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -0.5px; }
+    .sub-header { font-size: 1.1rem; color: #64748b; margin-bottom: 2rem; }
+    
+    .section-banner { 
         background-color: #ffffff; 
-        padding: 0.85rem; 
-        border-radius: 6px; 
-        margin: 0.25rem 0; 
-        border: 1px solid #e2e8f0;
-        box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        padding: 1rem 1.25rem; 
+        border-radius: 8px; 
+        border-left: 5px solid #2F578A; 
+        margin-bottom: 1.5rem; 
+        box-shadow: 0 1px 3px rgba(0,0,0,0.02); 
     }
-    .sidebar-text { font-size: 0.85rem; color: #334155; margin: 4px 0; line-height: 1.4; }
+    .section-banner h5 { margin: 0; color: #2F578A; font-weight: 600; }
     
-    /* Force Radio Options to Wrap Elegantly */
-    div[data-testid="stRadio"] > label {
-        font-weight: 600 !important;
-        color: #1e3a1e !important;
+    /* Modern Dashboard Metric Cards with Palette Accents */
+    .card-metric { 
+        background: #ffffff; 
+        padding: 1.5rem; 
+        border-radius: 12px; 
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03); 
+        border: 1px solid #e2e8f0; 
+        position: relative; 
+        overflow: hidden; 
     }
+    .card-metric::before { 
+        content: ""; 
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        width: 4px; 
+        height: 100%; 
+        background: #2F578A; 
+    }
+    .metric-num { font-size: 1.8rem; font-weight: 700; color: #0f172a; margin-top: 0.5rem; letter-spacing: -0.5px; }
+    .metric-titl { font-size: 0.75rem; color: #64748b; text-transform: uppercase; font-weight: 700; letter-spacing: 0.8px; }
+    
+    /* --- SIDEBAR HIGH-CONTRAST TEXT & PALETTE OVERRIDES --- */
+    [data-testid="stSidebar"] { 
+        min-width: 340px !important; 
+        max-width: 340px !important; 
+        background-color: #1e2638 !important; 
+    }
+    [data-testid="stSidebar"] .stMarkdown p, 
+    [data-testid="stSidebar"] h2, 
+    [data-testid="stSidebar"] h3,
+    [data-testid="stSidebar"] label,
+    [data-testid="stSidebar"] div[data-testid="stMarkdownContainer"] p,
+    [data-testid="stSidebar"] span[data-testid="stWidgetLabel"] p { 
+        color: #ffffff !important; 
+        font-weight: 500 !important;
+    }
+    [data-testid="stSidebar"] div[role="radiogroup"] label {
+        color: #cbd5e1 !important;
+    }
+    [data-testid="stSidebarUserContent"] { padding: 1.5rem 1rem !important; }
+    
+    .sidebar-card { 
+        background-color: #2a344a; 
+        padding: 1rem; 
+        border-radius: 10px; 
+        margin: 0.5rem 0; 
+        border: 1px solid #3d4a66; 
+    }
+    .sidebar-text { font-size: 0.85rem; color: #cbd5e1 !important; margin: 6px 0; line-height: 1.5; }
+    .sidebar-text b { color: #ffffff !important; }
+    
+    .badge-active { background-color: #2F578A; color: #ffffff; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
     
     /* Prevent Button Text Overflow & Enable Wrapping */
     div[data-testid="stWidgetFormSubmitButton"] > button {
@@ -55,10 +96,16 @@ st.markdown("""
         word-wrap: break-word !important;
         height: auto !important;
         padding: 0.5rem 1rem !important;
+        background-color: #2F578A !important;
+        color: white !important;
     }
-    div[data-testid="stWidgetFormSubmitButton"] p {
-        white-space: normal !important;
-        word-break: break-word !important;
+    
+    div[data-testid="stForm"] { 
+        background-color: #ffffff; 
+        padding: 2rem; 
+        border-radius: 12px; 
+        border: 1px solid #e2e8f0; 
+        box-shadow: 0 1px 3px rgba(0,0,0,0.02); 
     }
     </style>
 """, unsafe_allow_html=True)
@@ -66,12 +113,30 @@ st.markdown("""
 # --- 2. STATE INITIALIZATION (PURE IN-MEMORY ENGINE) ---
 if 'authenticated' not in st.session_state:
     st.session_state.authenticated = False
-
+if 'user_role' not in st.session_state:
+    st.session_state.user_role = ""
+if 'user_name' not in st.session_state:
+    st.session_state.user_name = ""
 if 'currency' not in st.session_state:
     st.session_state.currency = "KES (KSh)"
-
 if 'sandbox_container' not in st.session_state:
     st.session_state.sandbox_container = []
+
+# Core Identities & Access Control Matrix Database
+if 'system_users_db' not in st.session_state:
+    st.session_state.system_users_db = {
+        "admin@agrigrow.com": {"password": "password", "name": "Paul Gaitho", "role": "Data Auditor Pro"},
+        "owner@agrigrow.com": {"password": "ownerpassword", "name": "Executive Management", "role": "Farm Owner"},
+        "field@agrigrow.com": {"password": "fieldpassword", "name": "Emily Mkabili", "role": "Field Operations Lead"}
+    }
+
+# Dynamic Editable Configuration Lists
+if 'crop_names_list' not in st.session_state:
+    st.session_state.crop_names_list = ["Maize", "Wheat", "Tomatoes", "Coffee", "Potatoes", "Barley", "Rice", "Sugarcane", "Beans"]
+if 'crop_types_list' not in st.session_state:
+    st.session_state.crop_types_list = ["Cereal", "Vegetable", "Fruit", "Cash Crop", "Legume"]
+if 'expense_categories' not in st.session_state:
+    st.session_state.expense_categories = ["Fertilizer", "Chemicals/Pesticides", "Labor", "Equipment Rental", "Seedlings", "Fuel"]
 
 # Mock Baseline Storage Datasets
 if 'crops_data' not in st.session_state:
@@ -102,41 +167,47 @@ if 'registry_data' not in st.session_state:
         {"id": 1, "date": "2026-02-10", "source": "AgriChem Suppliers", "description": "NPK 17-17-17", "project": "Reference Pool", "crop": "N/A", "yield_units": 1.0, "price": 3200.00, "income": 0, "other_income": 0, "total_income": 0, "paid": "Yes", "payment_mode": "Cash", "payment_code": "REF-01"}
     ])
 
-crop_types = ["Cereal", "Vegetable", "Fruit", "Cash Crop", "Legume"]
-expense_categories = ["Fertilizer", "Chemicals/Pesticides", "Labor", "Equipment Rental", "Seedlings", "Fuel"]
-
 # Localized Currency Extraction Helper
 c_symbol = st.session_state.currency.split(" ")[1].replace("(", "").replace(")", "")
 
-def trigger_toast(message):
-    st.toast(f"✔ Action: {message}", icon="💼")
-
 # --- 3. SIGN-IN ACCESS CONTROL ENFORCEMENT ---
 if not st.session_state.authenticated:
-    st.markdown('<div class="main-header">🔑 Corporate Access Portal</div>', unsafe_allow_html=True)
+    st.markdown("""
+        <style>
+            [data-testid="stSidebar"] { display: none !important; }
+        </style>
+    """, unsafe_allow_html=True)
+    
+    st.markdown('<div class="main-header" style="text-align:center; margin-top:5rem;">🌾 AgriGrow ERP Enterprise Portal</div>', unsafe_allow_html=True)
     col1, col2, col3 = st.columns([1, 1.2, 1])
     with col2:
         with st.form("login_gate"):
-            st.subheader("Login Credentials Required")
-            uid = st.text_input("Email Address", value="admin@agrigrow.com")
-            pwd = st.text_input("Password", type="password", value="password")
-            if st.form_submit_button("Authenticate Sign-In", use_container_width=True):
-                if uid == "admin@agrigrow.com" and pwd == "password":
+            st.markdown("### Secure Sign-In Matrix")
+            uid = st.text_input("Corporate Email Address", value="admin@agrigrow.com")
+            pwd = st.text_input("Secure Access Passphrase", type="password", value="password")
+            
+            if st.form_submit_button("Authenticate Access Path", use_container_width=True):
+                if uid in st.session_state.system_users_db and st.session_state.system_users_db[uid]["password"] == pwd:
                     st.session_state.authenticated = True
+                    st.session_state.user_name = st.session_state.system_users_db[uid]["name"]
+                    st.session_state.user_role = st.session_state.system_users_db[uid]["role"]
+                    st.toast(f"Logged in successfully!", icon="🎯")
                     st.rerun()
                 else:
-                    st.error("Authentication rejected. Invalid credentials entered.")
+                    st.error("Authentication rejected. Invalid identity metrics.")
     st.stop()
 
 # --- 4. SYSTEM CONSOLE NAVIGATION WITH FIXED OVERLAYS ---
 with st.sidebar:
-    st.markdown("### 🌾 Management Console")
+    st.markdown("## 🚜 AgriGrow ERP")
+    st.markdown("---")
     
     # 🗂️ MAIN SYSTEM NAVIGATION
     current_tab = st.radio("Select Workspace Tab:", [
         "📊 Dashboard", "🌱 Crops Registry", "🏗️ Projects Manager", 
         "📉 Expenses Tracker", "💰 Income Ledger", "⚖️ Cost-Benefit Sandbox", 
-        "📋 Financial Reporting", "📈 Predictive Insights", "🧪 Market Input Registry", "⚙️ System Config"
+        "📋 Financial Reporting", "📈 Predictive Insights", "🧪 Market Input Registry", 
+        "⚙️ Lists & Categories Config", "🛠️ System Config"
     ])
     st.markdown("---")
     
@@ -155,7 +226,7 @@ with st.sidebar:
     with st.expander("🩺 System Health Logs", expanded=False):
         st.markdown("""
             <div class="sidebar-card">
-                <div class="sidebar-text"><b>Memory Mode:</b> <span style='color:green; font-weight:bold;'>Active</span></div>
+                <div class="sidebar-text"><b>Memory Mode:</b> <span style='color:#68d391; font-weight:bold;'>Active</span></div>
                 <div class="sidebar-text"><b>Server Latency:</b> 4ms</div>
                 <div class="sidebar-text"><b>Active Workers:</b> Local Canvas</div>
             </div>
@@ -164,10 +235,10 @@ with st.sidebar:
     # 👤 3. USER PROFILE COMPONENT CARD
     with st.expander("👤 User Profile Frame", expanded=True):
         st.markdown(f"""
-            <div class="sidebar-card" style="border-left: 3px solid #1e3a1e;">
-                <div class="sidebar-text"><b>Identity:</b> Administrator</div>
-                <div class="sidebar-text"><b>System Role:</b> Data Auditor Pro</div>
-                <div class="sidebar-text"><b>Active Tab:</b> {current_tab}</div>
+            <div class="sidebar-card" style="border-left: 3px solid #2F578A;">
+                <div class="sidebar-text"><b>User:</b> {st.session_state.user_name}</div>
+                <div class="sidebar-text"><b>Role:</b> {st.session_state.user_role}</div>
+                <div class="sidebar-text"><b>Status:</b> <span class="badge-active">Online</span></div>
             </div>
         """, unsafe_allow_html=True)
 
@@ -210,7 +281,7 @@ if current_tab == "📊 Dashboard":
     with kpi2:
         st.markdown(f'<div class="card-metric"><div class="metric-titl">Realized Revenues</div><div class="metric-num">{c_symbol} {calc_total_inc:,.2f}</div></div>', unsafe_allow_html=True)
     with kpi3:
-        color = "#16a34a" if calc_net_prof >= 0 else "#dc2626"
+        color = "#2F578A" if calc_net_prof >= 0 else "#dc2626"
         st.markdown(f'<div class="card-metric"><div class="metric-titl">Net Profit / Loss</div><div class="metric-num" style="color:{color};">{c_symbol} {calc_net_prof:,.2f}</div></div>', unsafe_allow_html=True)
     with kpi4:
         st.markdown(f'<div class="card-metric"><div class="metric-titl">Profit Margin</div><div class="metric-num">{calc_margin:.1f}%</div></div>', unsafe_allow_html=True)
@@ -224,14 +295,21 @@ if current_tab == "📊 Dashboard":
             "Stream": ["Income", "Expenses", "Net Profit"],
             "Value": [calc_total_inc, calc_total_exp, calc_net_prof]
         })
-        fig_cf = px.bar(cf_df, x="Stream", y="Value", color="Stream", template="plotly_white", color_discrete_sequence=["#1e3a1e", "#ba3c3c", "#4180ab"])
+        fig_cf = px.bar(cf_df, x="Stream", y="Value", color="Stream", template="plotly_white", color_discrete_sequence=["#2F578A", "#ba3c3c", "#4180ab"])
         st.plotly_chart(fig_cf, use_container_width=True)
         
     with graph_col2:
         st.subheader("Expense Distribution per Category")
         if not e_df.empty:
             cat_totals = e_df.groupby("category")["total_cost"].sum().reset_index()
-            fig_pie = px.pie(cat_totals, values="total_cost", names="category", hole=0.4, color_discrete_sequence=px.colors.sequential.Darkmint)
+            # FIX APPLIED HERE: Changed .Ice to .ice (or .Blues)
+            fig_pie = px.pie(
+    cat_totals, 
+    values="total_cost", 
+    names="category", 
+    hole=0.4, 
+    color_discrete_sequence=["#2F578A", "#4A7BB0", "#76A2D6", "#A2C8F7", "#D0E3FF"]
+)
             st.plotly_chart(fig_pie, use_container_width=True)
         else:
             st.info("No recorded expense entries match your selection criteria.")
@@ -240,72 +318,45 @@ if current_tab == "📊 Dashboard":
 elif current_tab == "🌱 Crops Registry":
     st.markdown('<div class="main-header">🌱 Global Crops Registry</div>', unsafe_allow_html=True)
     
-    c_df = st.session_state.crops_data
-
-    # 🌟 SINGLE CONSOLIDATED COLLAPSIBLE EXPANDER WINDOW FOR CROP MANAGEMENT TOOLS
-    with st.expander("⚙️ Manage Crop Profiles", expanded=False):
-        st.markdown("#### 📝 Register a New Crop Profile Type")
+    with st.expander("➕ Register a New Crop Profile Type", expanded=False):
         with st.form("form_crop_add"):
             col_cr1, col_cr2, col_cr3 = st.columns(3)
-            with col_cr1: cr_name = st.selectbox("Crop Name:", ["Maize", "Wheat", "Tomatoes", "Coffee", "Potatoes", "Barley", "Rice", "Sugarcane", "Beans"])
-            with col_cr2: cr_type = st.selectbox("Crop Type / Category:", crop_types)
-            with col_cr3: cr_season = st.text_input("Growing Season:", value="Main Season 2026")
+            with col_cr1: cr_name = st.selectbox("Crop Name Configuration:", st.session_state.crop_names_list)
+            with col_cr2: cr_type = st.selectbox("Crop Type / Category:", st.session_state.crop_types_list)
+            with col_cr3: cr_season = st.text_input("Growing Season Identifier:", value="Main Season 2026")
                 
             col_cr4, col_cr5, col_cr6 = st.columns(3)
             with col_cr4: cr_yield = st.number_input("Avg Yield per Acre:", min_value=0.0, value=35.0)
-            with col_cr5: cr_price = st.number_input(f"Market Price per Unit ({c_symbol}):", min_value=0.0, value=450.00)
-            with col_cr6: cr_cost = st.number_input(f"Avg Production Cost per Acre ({c_symbol}):", min_value=0.0, value=5000.00)
+            with col_cr5: cr_price = st.number_input(f"Market Price per Unit Value ({c_symbol}):", min_value=0.0, value=450.00)
+            with col_cr6: cr_cost = st.number_input(f"Avg Production Cost per Acre({c_symbol}):", min_value=0.0, value=5000.00)
 
             cr_calc_inc = cr_yield * cr_price
             cr_calc_ret = cr_calc_inc - cr_cost
             st.markdown(f"**⚡ Real-Time Estimation Context:** Gross Revenue/Acre: `{c_symbol} {cr_calc_inc:,.2f}` | Net Return/Acre: `{c_symbol} {cr_calc_ret:,.2f}`")
             
-            if st.form_submit_button("Save Crop Profile"):
+            if st.form_submit_button("Save Crop Baseline Profile"):
                 new_id = int(st.session_state.crops_data["id"].max() + 1) if not st.session_state.crops_data.empty else 1
                 new_row = pd.DataFrame([{"id": new_id, "crop_name": cr_name, "crop_type": cr_type, "growing_season": cr_season, "yield_acre": cr_yield, "market_price": cr_price, "cost_acre": cr_cost, "income_acre": cr_calc_inc, "net_returns": cr_calc_ret}])
                 st.session_state.crops_data = pd.concat([st.session_state.crops_data, new_row], ignore_index=True)
-                st.success("Crop baseline profile successfully added.")
+                st.success("Crop profile successfully logged.")
                 st.rerun()
-
-        st.markdown("---")
-        st.markdown("#### 📥 Bulk Ingest Crops Data Portal")
-        uploaded_crops_file = st.file_uploader("Upload structured CSV tracking lines directly:", type=["csv"], key="bulk_uploader_crops_csv")
-        if uploaded_crops_file is not None:
-            try:
-                csv_crops_df = pd.read_csv(uploaded_crops_file)
-                st.session_state.crops_data = pd.concat([st.session_state.crops_data, csv_crops_df], ignore_index=True)
-                st.success("Successfully processed and committed raw CSV data to crop matrices.")
-                st.rerun()
-            except Exception as e:
-                st.error(f"Ingestion processing failure: {str(e)}")
-
-        st.markdown("---")
-        st.markdown("#### 📤 Export Crop Register Arrays")
-        if not c_df.empty:
-            excel_crops_buffer = io.BytesIO()
-            with pd.ExcelWriter(excel_crops_buffer, engine="xlsxwriter") as xl_crops_writer:
-                c_df.to_excel(xl_crops_writer, index=False, sheet_name="Crop_Profiles")
-            st.download_button(label="📤 Download Comprehensive Crops Register Excel Sheet (.xlsx)", data=excel_crops_buffer.getvalue(), file_name="Crops_Report.xlsx", use_container_width=True)
-        else:
-            st.warning("No recorded data rows exist inside memory schemas to build crop profile sheets.")
 
     st.markdown('<div class="section-banner"><h5>Registered System Crops Base Metrics</h5></div>', unsafe_allow_html=True)
-    st.dataframe(st.session_state.crops_data, use_container_width=True)
+    st.dataframe(st.session_state.crops_data, use_container_width=True, hide_index=True)
 
 # 3. TAB: PROJECTS MANAGER
 elif current_tab == "🏗️ Projects Manager":
-    st.markdown('<div class="main-header">🏗️ Production Field Project Matrix</div>', unsafe_allow_html=True)
+    st.markdown('<div class="main-header">🏗️ Production Field Project</div>', unsafe_allow_html=True)
     
     p_df = st.session_state.projects_data
     crops_list = list(st.session_state.crops_data["crop_name"].unique()) if not st.session_state.crops_data.empty else ["Maize"]
 
-    # SINGLE CONSOLIDATED COLLAPSIBLE EXPANDER WINDOW FOR FIELD OPERATIONS MANAGEMENT
-    with st.expander("⚙️ Manage Field Projects", expanded=False):
+    with st.expander("⚙️ Manage Field Projects Setup", expanded=False):
         st.markdown("#### 📝 Launch a New Field Project Operation Block")
         with st.form("form_proj_add"):
             col_pr1, col_pr2, col_pr3 = st.columns(3)
             with col_pr1: pr_name = st.text_input("Project / Field Name Identifier:")
-            with col_pr2: pr_crop = st.selectbox("Assigned Focus Crop Asset:", crops_list)
+            with col_pr2: pr_crop = st.selectbox("Assigned Crop Node Asset:", st.session_state.crop_names_list)
             with col_pr3: pr_acres = st.number_input("Allocated Acreage Size:", min_value=0.1, value=10.0)
                 
             col_pr4, col_pr5, col_pr6 = st.columns(3)
@@ -351,7 +402,7 @@ elif current_tab == "🏗️ Projects Manager":
             st.warning("No recorded data rows exist inside memory schemas to build field project sheets.")
 
     st.markdown('<div class="section-banner"><h5>Active Field Land Allocation Control Framework</h5></div>', unsafe_allow_html=True)
-    st.dataframe(st.session_state.projects_data, use_container_width=True)
+    st.dataframe(st.session_state.projects_data, use_container_width=True, hide_index=True)
 
 # 4. TAB: EXPENSES TRACKER
 elif current_tab == "📉 Expenses Tracker":
@@ -366,16 +417,15 @@ elif current_tab == "📉 Expenses Tracker":
     
     eb1, eb2, eb3 = st.columns(3)
     with eb1:
-        st.markdown(f'<div class="card-metric" style="border-left: 4px solid #dc2626;"><div class="metric-titl">Total Expenses Ledger Invoiced</div><div class="metric-num">{c_symbol} {ex_tot:,.2f}</div></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="card-metric" style="border-left: 4px solid #ba3c3c;"><div class="metric-titl">Total Expenses Ledger Invoiced</div><div class="metric-num">{c_symbol} {ex_tot:,.2f}</div></div>', unsafe_allow_html=True)
     with eb2:
-        st.markdown(f'<div class="card-metric" style="border-left: 4px solid #16a34a;"><div class="metric-titl">Fully Settle Paid Outflows</div><div class="metric-num">{c_symbol} {ex_paid:,.2f}</div></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="card-metric" style="border-left: 4px solid #2F578A;"><div class="metric-titl">Fully Settle Paid Outflows</div><div class="metric-num">{c_symbol} {ex_paid:,.2f}</div></div>', unsafe_allow_html=True)
     with eb3:
         st.markdown(f'<div class="card-metric" style="border-left: 4px solid #ea580c;"><div class="metric-titl">Outstanding Accounts Payable</div><div class="metric-num">{c_symbol} {ex_unpaid:,.2f}</div></div>', unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
     
-    # SINGLE CONSOLIDATED COLLAPSIBLE EXPANDER WINDOW FOR TRANSACTION MANAGEMENT TOOLS
-    with st.expander("⚙️ Manage Expense Transactions", expanded=False):
+    with st.expander("⚙️ Manage Expense Transactions Window", expanded=False):
         st.markdown("#### 📝 Manual Transaction Line Entry Form")
         with st.form("form_exp_add"):
             col_ex1, col_ex2, col_ex3 = st.columns(3)
@@ -383,10 +433,10 @@ elif current_tab == "📉 Expenses Tracker":
             with col_ex2:
                 proj_options = list(p_df["project_name"].unique()) if not p_df.empty else ["West Field Maize"]
                 ex_proj = st.selectbox("Link to Active Project Area Unit Node:", proj_options)
-            with col_ex3: ex_desc = st.text_input("Expense Item / Line Notation Description:")
+            with col_ex3: ex_desc = st.text_input("Expense Record Narrative Note:")
                 
             col_ex4, col_ex5, col_ex6 = st.columns(3)
-            with col_ex4: ex_cat = st.selectbox("Expense Category Overhead Classification Group:", expense_categories)
+            with col_ex4: ex_cat = st.selectbox("Expense Category Overhead Classification Group:", st.session_state.expense_categories)
             with col_ex5: ex_uom = st.selectbox("Unit of Measure (UoM):", ["Bags", "Liters", "Hours", "Kgs", "Tonnes"])
             with col_ex6: ex_units = st.number_input("Quantity Units Purchased Capacity:", min_value=0.0, value=5.0)
                 
@@ -403,7 +453,7 @@ elif current_tab == "📉 Expenses Tracker":
                 new_id = int(st.session_state.expenses_data["id"].max() + 1) if not st.session_state.expenses_data.empty else 1
                 new_row = pd.DataFrame([{"id": new_id, "date": str(ex_date), "project": ex_proj, "description": ex_desc, "category": ex_cat, "uom": ex_uom, "units": ex_units, "cost_per_unit": ex_cpu, "amount": calc_ex_base_amt, "other_charges": ex_chg, "total_cost": calc_ex_total_cost, "paid": ex_paid_st}])
                 st.session_state.expenses_data = pd.concat([st.session_state.expenses_data, new_row], ignore_index=True)
-                st.success("Invoiced transaction item saved cleanly to storage.")
+                st.success("Expense stored securely.")
                 st.rerun()
 
         st.markdown("---")
@@ -429,7 +479,7 @@ elif current_tab == "📉 Expenses Tracker":
             st.warning("No recorded data rows exist inside memory schemas to build report sheets.")
 
     st.markdown('<div class="section-banner"><h5>Operational Expense Accounting Statement Ledger Table</h5></div>', unsafe_allow_html=True)
-    st.dataframe(st.session_state.expenses_data, use_container_width=True)
+    st.dataframe(st.session_state.expenses_data, use_container_width=True, hide_index=True)
 
 # 5. TAB: INCOME LEDGER
 elif current_tab == "💰 Income Ledger":
@@ -439,22 +489,21 @@ elif current_tab == "💰 Income Ledger":
     p_df = st.session_state.projects_data
     crops_list = list(st.session_state.crops_data["crop_name"].unique()) if not st.session_state.crops_data.empty else ["Maize"]
 
-    # SINGLE CONSOLIDATED COLLAPSIBLE EXPANDER WINDOW FOR REVENUE MANAGEMENT TOOLS
-    with st.expander("⚙️ Manage Income Transactions", expanded=False):
+    with st.expander("⚙️ Manage Income Transactions Configuration Control Window", expanded=False):
         st.markdown("#### 📝 Log Yield Sales Order Commercial Valuation Receivables Receipts")
         with st.form("form_inc_add"):
             col_in1, col_in2, col_in3 = st.columns(3)
             with col_in1: in_date = st.date_input("Value Receipt Transaction Date:", datetime.now())
-            with col_in2: in_src = st.text_input("Procurement B2B Buyer Corporation Name Identifier:")
+            with col_in2: in_src = st.text_input("Procurement B2B Entity Corporate Name:")
             with col_in3: in_desc = st.text_input("Transaction Particulars Description Memorandum Note:")
                 
             col_in4, col_in5, col_in6 = st.columns(3)
-            with col_in4: in_proj = st.selectbox("Link Activity Tracking to Field Production Project Instance:", list(p_df["project_name"].unique()) if not p_df.empty else ["West Field Maize"])
-            with col_in5: in_crop = st.selectbox("Cultivated Commodity Classification Asset Profile Context:", crops_list)
-            with col_in6: in_yield = st.number_input("Dispatched Cargo Unit Output Weights Volume counts Sold:", min_value=0.0, value=10.0)
+            with col_in4: in_proj = st.selectbox("Link Operational Node Instance tracking to Project Matrix ID:", list(p_df["project_name"].unique()) if not p_df.empty else ["West Field Maize"])
+            with col_in5: in_crop = st.selectbox("Cultivated Commodity Matcher Option:", st.session_state.crop_names_list)
+            with col_in6: in_yield = st.number_input("Dispatched Cargo Weight Volumes Sold:", min_value=0.0, value=10.0)
                 
             col_in7, col_in8, col_in9 = st.columns(3)
-            with col_in7: in_price = st.number_input(f"Agreed Spot Market Realized Price Value Allocation Metric per Unit ({c_symbol}):", min_value=0.0, value=450.00)
+            with col_in7: in_price = st.number_input(f"Agreed Spot Contract Sale Price per Unit Metric Line ({c_symbol}):", min_value=0.0, value=450.00)
             with col_in8: in_other = st.number_input(f"Subsidiary Logistics Revenue / Crop Biomass Supplementary Gains ({c_symbol}):", min_value=0.0, value=0.00)
             with col_in9: in_paid = st.selectbox("Payment Settlement Clearance Inward Status Flag Picker Token:", ["Paid", "Unpaid"])
                 
@@ -466,11 +515,11 @@ elif current_tab == "💰 Income Ledger":
             calc_in_tot = calc_in_amt + in_other
             st.markdown(f"**⚡ Live Inflow Revenue Calculations Check:** Core Cargo Value Realized: `{c_symbol} {calc_in_amt:,.2f}` | Gross Balance Cash Inflow Total realized: `{c_symbol} {calc_in_tot:,.2f}`")
             
-            if st.form_submit_button("Record incoming revenue cash flows statement item"):
+            if st.form_submit_button("Commit Inbound Commercial Transaction Entry Object"):
                 new_id = int(st.session_state.income_data["id"].max() + 1) if not st.session_state.income_data.empty else 1
                 new_row = pd.DataFrame([{"id": new_id, "date": str(in_date), "source": in_src, "description": in_desc, "project": in_proj, "crop": in_crop, "yield_units": in_yield, "price": in_price, "amount": calc_in_amt, "other_income": in_other, "total_income": calc_in_tot, "paid": in_paid, "payment_mode": in_mode, "payment_code": in_code}])
                 st.session_state.income_data = pd.concat([st.session_state.income_data, new_row], ignore_index=True)
-                st.success("Successfully logged commercial trading transaction settlement event entry.")
+                st.success("Revenue logged properly.")
                 st.rerun()
 
         st.markdown("---")
@@ -496,207 +545,252 @@ elif current_tab == "💰 Income Ledger":
             st.warning("No recorded data rows exist inside memory schemas to build income report sheets.")
 
     st.markdown('<div class="section-banner"><h5>Inward Commercial Yield Distribution & Sales Revenues Statements Records Matrix Table</h5></div>', unsafe_allow_html=True)
-    st.dataframe(st.session_state.income_data, use_container_width=True)
+    st.dataframe(st.session_state.income_data, use_container_width=True, hide_index=True)
 
 # 6. TAB: COST-BENEFIT SANDBOX
 elif current_tab == "⚖️ Cost-Benefit Sandbox":
-    st.markdown('<div class="main-header">⚖️ Simulation Workspace - Multi-Crop Cost-Benefit Analysis Projections Modeling</div>', unsafe_allow_html=True)
+    st.markdown('<div class="main-header">⚖️ Simulation Workspace - Multi-Crop Cost-Benefit Projections Matrix</div>', unsafe_allow_html=True)
+    st.markdown('<div class="sub-header">Model out complex financial targets, production costs, and expected ROI segments safely in sandbox environments.</div>', unsafe_allow_html=True)
     
     with st.form("form_sandbox_simulation"):
-        st.markdown("**Add Asset Test Configuration Setup Scenario Metrics Block Frame Settings**")
-        sb_col1, sb_col2, sb_col3, sb_col4, sb_col5 = st.columns(5)
-        with sb_col1: sb_cr = st.text_input("Test Crop Label Identification Code Name:", value="Experimental Wheat Variant")
-        with sb_col2: sb_sz = st.number_input("Test Size (Acres):", min_value=1.0, value=15.0)
-        with sb_col3: sb_cpa = st.number_input(f"Simulated Cost per Acre ({c_symbol}):", min_value=0.0, value=4500.00)
-        with sb_col4: sb_ypa = st.number_input("Simulated Yield per Acre:", min_value=0.0, value=35.0)
-        with sb_col5: sb_ppu = st.number_input(f"Projected Price per Unit ({c_symbol}):", min_value=0.0, value=500.00)
+        st.markdown("#### Run Pro-Forma Testing Scenario Matrix")
+        sb_col1, sb_col2, sb_col3 = st.columns(3)
+        with sb_col1: sb_cr = st.selectbox("Test Crop Blueprint Node Asset:", st.session_state.crop_names_list)
+        with sb_col2: sb_sz = st.number_input("Allocated Simulated Acreage Size:", min_value=1.0, value=10.0)
+        with sb_col3: sb_cpa = st.number_input(f"Simulated Direct Operational Cost/Acre ({c_symbol}):", min_value=0.0, value=4500.00)
         
-        if st.form_submit_button("💥 Inject Target Sandbox Test Case Parameter Setup Object Into Memory"):
+        sb_col4, sb_col5 = st.columns(2)
+        with sb_col4: sb_ypa = st.number_input("Simulated Target Yield per Acre Weight Units:", min_value=0.0, value=30.0)
+        with sb_col5: sb_ppu = st.number_input(f"Target Open Market Contract Price per Sale Unit ({c_symbol}):", min_value=0.0, value=500.00)
+        
+        if st.form_submit_button("💥 Inject Simulation Scenario Target Block Matrix"):
             sb_calc_exp = sb_cpa * sb_sz
             sb_calc_inc = sb_ypa * sb_sz * sb_ppu
             sb_calc_net = sb_calc_inc - sb_calc_exp
             sb_calc_roi = (sb_calc_net / sb_calc_exp * 100) if sb_calc_exp > 0 else 0.0
             
             st.session_state.sandbox_container.append({
-                "Scenario Label": sb_cr, "Acreage Allocation": sb_sz, "Simulated Total Expenditures": sb_calc_exp,
-                "Simulated Gross Revenue": sb_calc_inc, "Net Returns Forecast": sb_calc_net, "ROI Ratio Index": f"{sb_calc_roi:.1f}%"
+                "Crop Target Option": sb_cr, 
+                "Acreage Weight": sb_sz, 
+                "Projected Total Expenditures": sb_calc_exp,
+                "Projected Realized Revenue": sb_calc_inc, 
+                "Net Income Returns": sb_calc_net, 
+                "Pro-Forma ROI Ratio": f"{sb_calc_roi:.2f}%"
             })
-            st.success("Appended scenario configurations profile definition.")
+            st.success("Appended sandbox comparison line down onto dashboard layout view workspace.")
             st.rerun()
 
     if st.session_state.sandbox_container:
-        st.markdown('<div class="section-banner"><h5>Cost-Benefit Matrix Strategy Projection Comparisons Output Results Tables</h5></div>', unsafe_allow_html=True)
-        st.table(pd.DataFrame(st.session_state.sandbox_container))
-        if st.button("🗑️ Reset Simulator Configuration Environment Canvas Spaces"):
+        st.markdown('<div class="section-banner"><h5>Cost-Benefit Matrix Strategy Projection Comparisons Output Results</h5></div>', unsafe_allow_html=True)
+        st.dataframe(pd.DataFrame(st.session_state.sandbox_container), use_container_width=True, hide_index=True)
+        if st.button("🗑️ Clear Target Scenario Arrays Memory Canvas Spaces", use_container_width=True):
             st.session_state.sandbox_container = []
-            st.success("Reset simulator space workspace layouts.")
+            st.success("Reset simulator metrics.")
             st.rerun()
 
-# 7. TAB: FINANCIAL REPORTING
+# 7. TAB: FINANCIAL REPORTING (DYNAMIC GENERATION SYSTEM)
 elif current_tab == "📋 Financial Reporting":
-    st.markdown('<div class="main-header">📋 Corporate Accounting Financial Statements Portal</div>', unsafe_allow_html=True)
+    st.markdown('<div class="main-header">📋 Corporate Reconciled Financial Performance Statements Portal</div>', unsafe_allow_html=True)
     
     col_f_sel, col_f_s, col_f_e = st.columns([2, 1, 1])
-    with col_f_sel:
-        rep_type = st.selectbox("Report Template Model:", [
-            "Corporate Profit and Loss (P&L) Statement",
-            "Global Enterprise Financial Summary Abstract"
-        ])
-    with col_f_s: st.date_input("Period Start Date:", date(2026, 1, 1))
-    with col_f_e: st.date_input("Period End Date:", date(2026, 12, 31))
+    with col_f_sel: rep_type = st.selectbox("Accounting Sheet Statement Format:", ["Corporate Profit and Loss (P&L) Statement Ledger"])
+    with col_f_s: st.date_input("Period Inception Timeline Track:", date(2026, 1, 1))
+    with col_f_e: st.date_input("Period Closure Termination Date:", date(2026, 12, 31))
         
     st.markdown("<br>", unsafe_allow_html=True)
     
-    if st.button("🏭 Generate Statement Report Manifest", use_container_width=True):
-        e_df = st.session_state.expenses_data
-        i_df = st.session_state.income_data
+    # Financial Aggregator Engine Execution Button
+    generate_report = st.button("🔄 Execute Re-Aggregation & Regenerate Reconciled P&L Statement Report", use_container_width=True)
+    
+    if generate_report:
+        st.toast("Financial database lines aggregated successfully!", icon="⚖️")
+    
+    e_df = st.session_state.expenses_data
+    i_df = st.session_state.income_data
+    
+    revenue = i_df["total_income"].sum() if not i_df.empty else 0.0
+    cogs_cats = ["Fertilizer", "Chemicals/Pesticides", "Labor", "Seedlings"]
+    cogs = e_df[e_df["category"].isin(cogs_cats)]["total_cost"].sum() if not e_df.empty else 0.0
+    
+    opex_cats = ["Equipment Rental", "Fuel"]
+    opex = e_df[e_df["category"].isin(opex_cats)]["total_cost"].sum() if not e_df.empty else 0.0
+    
+    gross_profit = revenue - cogs
+    net_income = gross_profit - opex
+    
+    gross_margin = (gross_profit / revenue * 100) if revenue > 0 else 0.0
+    net_margin = (net_income / revenue * 100) if revenue > 0 else 0.0
+    
+    st.markdown(f"### 📄 Generated Financial Performance Record Blueprint")
+    st.components.v1.html(f"""
+    <div style="background-color: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 2.5rem; font-family: 'Courier New', Courier, monospace; color: #0f172a; line-height: 1.6;">
+        <div style="text-align: center; font-weight: bold; font-size: 1.4rem; text-transform: uppercase;">AGRIGROW ENTERPRISE PRO PLC</div>
+        <div style="text-align: center; font-weight: bold; font-size: 1.0rem; color: #475569; text-transform: uppercase;">Profit and Loss Statement</div>
+        <div style="text-align: center; font-size: 0.85rem; color:#64748b; margin-bottom: 2.5rem;">For the Period Ending December 31, 2026 | Currency: {c_symbol}</div>
         
-        # Calculate accounting baseline vectors
-        revenue = i_df["total_income"].sum() if not i_df.empty else 0.0
-        
-        # COGS components: Direct Field Production inputs (Fertilizers, Chemicals, Labor, Seedlings)
-        cogs_cats = ["Fertilizer", "Chemicals/Pesticides", "Labor", "Seedlings"]
-        cogs = e_df[e_df["category"].isin(cogs_cats)]["total_cost"].sum() if not e_df.empty else 0.0
-        
-        # Operating Expenses components: Secondary Support Overheads (Fuel, Equipment Hire, Rent)
-        opex_cats = ["Equipment Rental", "Fuel"]
-        opex = e_df[e_df["category"].isin(opex_cats)]["total_cost"].sum() if not e_df.empty else 0.0
-        
-        gross_profit = revenue - cogs
-        net_income = gross_profit - opex
-        
-        gross_margin = (gross_profit / revenue * 100) if revenue > 0 else 0.0
-        net_margin = (net_income / revenue * 100) if revenue > 0 else 0.0
-        
-        st.markdown(f"### 📄 Consolidated Financial Performance Manifest")
-        
-        st.components.v1.html(f"""
-        <div style="background-color: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 2.5rem; font-family: 'Courier New', Courier, monospace; box-shadow: 0 1px 3px rgba(0,0,0,0.05); color: #0f172a; line-height: 1.6;">
-            <div style="text-align: center; font-weight: bold; font-size: 1.4rem; letter-spacing: 1px; margin-bottom: 0.25rem; text-transform: uppercase;">AGRIGROW ENTERPRISE PRO PLC</div>
-            <div style="text-align: center; font-weight: bold; font-size: 1.0rem; margin-bottom: 0.25rem; text-transform: uppercase; color: #475569;">Profit and Loss Statement</div>
-            <div style="text-align: center; font-size: 0.85rem; color:#64748b; margin-bottom: 2.5rem;">For the Period Ending December 31, 2026 | Currency: {c_symbol}</div>
-            
-            <div style="display: flex; justify-content: space-between; font-weight: bold; border-bottom: 3px solid #0f172a; padding-bottom: 0.5rem; text-transform: uppercase; font-size: 0.95rem;">
-                <span>Account Classification Segment</span>
-                <span>Value Amount ({c_symbol})</span>
-            </div>
-            
-            <div style="display: flex; justify-content: space-between; padding: 0.5rem 0 0.25rem 0; font-weight: bold; font-size: 1rem; color: #1e3a1e;">
-                <span>REVENUE</span>
-                <span></span>
-            </div>
-            <div style="display: flex; justify-content: space-between; padding: 0.25rem 0 0.25rem 1.5rem; font-size: 0.95rem;">
-                <span>Gross Primary Crop Distribution Sales</span>
-                <span>{revenue:,.2f}</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; padding: 0.4rem 0; font-weight: bold; border-top: 1px solid #cbd5e1; font-size: 0.95rem;">
-                <span>Total Net Revenue</span>
-                <span>{revenue:,.2f}</span>
-            </div>
-            
-            <div style="display: flex; justify-content: space-between; padding: 1rem 0 0.25rem 0; font-weight: bold; font-size: 1rem; color: #9a3412;">
-                <span>COST OF GOODS SOLD (COGS)</span>
-                <span></span>
-            </div>
-            <div style="display: flex; justify-content: space-between; padding: 0.25rem 0 0.25rem 1.5rem; font-size: 0.95rem; color: #64748b;">
-                <span>Direct Field Production Overheads (Fertilizer, Seedlings, Labor)</span>
-                <span>({cogs:,.2f})</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; padding: 0.4rem 0; font-weight: bold; border-top: 1px solid #cbd5e1; font-size: 0.95rem;">
-                <span>Total Cost of Goods Sold</span>
-                <span>({cogs:,.2f})</span>
-            </div>
-            
-            <div style="display: flex; justify-content: space-between; padding: 0.75rem 0; font-weight: bold; border-top: 2px solid #0f172a; border-bottom: 2px solid #0f172a; background-color: #f8fafc; font-size: 1rem; margin-top: 0.5rem;">
-                <span>GROSS PROFIT (Margin: {gross_margin:.1f}%)</span>
-                <span>{gross_profit:,.2f}</span>
-            </div>
-            
-            <div style="display: flex; justify-content: space-between; padding: 1.25rem 0 0.25rem 0; font-weight: bold; font-size: 1rem; color: #475569;">
-                <span>OPERATING EXPENSES (OPEX)</span>
-                <span></span>
-            </div>
-            <div style="display: flex; justify-content: space-between; padding: 0.25rem 0 0.25rem 1.5rem; font-size: 0.95rem; color: #64748b;">
-                <span>Secondary Logistics & Resource Overheads (Fuel, Equipment Rental)</span>
-                <span>({opex:,.2f})</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; padding: 0.4rem 0; font-weight: bold; border-top: 1px solid #cbd5e1; font-size: 0.95rem;">
-                <span>Total Operating Expenses</span>
-                <span>({opex:,.2f})</span>
-            </div>
-            
-            <div style="display: flex; justify-content: space-between; font-size: 1.15rem; font-weight: bold; border-top: 2px solid #0f172a; border-bottom: 4px double #0f172a; margin-top: 1.5rem; padding: 0.75rem 0; background-color: #f1f5f9;">
-                <span>NET RECONCILED INCOME POSITION (Margin: {net_margin:.1f}%)</span>
-                <span>{c_symbol} {net_income:,.2f}</span>
-            </div>
+        <div style="display: flex; justify-content: space-between; font-weight: bold; border-bottom: 3px solid #0f172a; padding-bottom: 0.5rem; text-transform: uppercase;">
+            <span>Account Segment Component Matrix</span>
+            <span>Net Asset Valuation ({c_symbol})</span>
         </div>
-        """, height=500, scrolling=True)
+        
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0 0.25rem 0; font-weight: bold; color: #2F578A;">
+            <span>REVENUE FLOW ENGINES</span>
+            <span></span>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding: 0.25rem 0 0.25rem 1.5rem;">
+            <span>Gross Primary Crop Wholesale Distribution Income</span>
+            <span>{revenue:,.2f}</span>
+        </div>
+        
+        <div style="display: flex; justify-content: space-between; padding: 1rem 0 0.25rem 0; font-weight: bold; color: #ba3c3c;">
+            <span>COST OF GOODS SOLD (COGS)</span>
+            <span></span>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding: 0.25rem 0 0.25rem 1.5rem; color: #64748b;">
+            <span>Direct Production Inputs Overhead Costs (Fertilizer, Seeds, Labor)</span>
+            <span>({cogs:,.2f})</span>
+        </div>
+        
+        <div style="display: flex; justify-content: space-between; padding: 0.75rem 0; font-weight: bold; border-top: 2px solid #0f172a; border-bottom: 2px solid #0f172a; background-color: #f8fafc;">
+            <span>GROSS PROFIT (Margin Ratio: {gross_margin:.1f}%)</span>
+            <span>{gross_profit:,.2f}</span>
+        </div>
+        
+        <div style="display: flex; justify-content: space-between; padding: 1.25rem 0 0.25rem 0; font-weight: bold; color: #475569;">
+            <span>OPERATING EXPENSES (OPEX)</span>
+            <span></span>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding: 0.25rem 0 0.25rem 1.5rem; color: #64748b;">
+            <span>Secondary Logistic & Support Overheads (Fuel, Equipment Leases)</span>
+            <span>({opex:,.2f})</span>
+        </div>
+        
+        <div style="display: flex; justify-content: space-between; font-size: 1.15rem; font-weight: bold; border-top: 2px solid #0f172a; border-bottom: 4px double #0f172a; margin-top: 1.5rem; padding: 0.75rem 0; background-color: #f1f5f9;">
+            <span>NET RECONCILED RUNNING PROFIT POSITION (Margin: {net_margin:.1f}%)</span>
+            <span>{c_symbol} {net_income:,.2f}</span>
+        </div>
+    </div>
+    """, height=480, scrolling=True)
 
 # 8. TAB: PREDICTIVE INSIGHTS
 elif current_tab == "📈 Predictive Insights":
-    st.markdown('<div class="main-header">📈 Predictive Data Insights Panel</div>', unsafe_allow_html=True)
+    st.markdown('<div class="main-header">📈 Predictive Data Insights Panel Matrix</div>', unsafe_allow_html=True)
     
     e_df = st.session_state.expenses_data
     fert_rows = e_df[e_df["category"] == "Fertilizer"]
     fert_cost = fert_rows["cost_per_unit"].mean() if not fert_rows.empty else 2500.00
 
     with st.chat_message("assistant", avatar="🤖"):
-        st.write("### 🤖 System Audit Engine Report:")
-        st.write("1. **Capital Outlay Allocations:** Expenditure distributions verify safe operational ranges configurations benchmarks indicators.")
-        st.write(f"2. **⚠️ Anomalous Cost Deviation Alert:** Fertilizer purchase entry costs row invoices mapping profiles verify an index calculation tracing approximately **+11.8%** higher margin variance deviation trends than open wholesale agricultural commodity directory pricing scales indices (Current average base: {c_symbol} {fert_cost:,.2f}).")
+        st.write("### 🤖 Automated Production Intelligence Report Matrix Summary:")
+        st.write("1. **Capital Outlay Allocations:** Structural financial checking indicators match safe target benchmarks operational configurations fields parameters.")
+        st.write(f"2. **Anomalous Cost Deviation Alert:** Recorded purchase costs tracking rows invoices data maps a transaction pricing sequence tracking approximately **+11.8%** higher margin variance limits than baseline open agriculture wholesale commodity directories (Current logged mean weight: `{c_symbol} {fert_cost:,.2f}`). Optimize input item paths to protect net yield return scales indices metrics.")
 
 # 9. TAB: MARKET INPUT REGISTRY
 elif current_tab == "🧪 Market Input Registry":
     st.markdown('<div class="main-header">🧪 Input Items Market Reference Directory</div>', unsafe_allow_html=True)
     
-    st.dataframe(st.session_state.registry_data, use_container_width=True)
-    
-    with st.expander("➕ Append Reference Data Product Price Catalog", expanded=False):
-        with st.form("form_reg_add"):
+    with st.expander("➕ Add New Reference Item Row to Registry", expanded=False):
+        with st.form("form_registry_add"):
             col_rg1, col_rg2, col_rg3 = st.columns(3)
-            with col_rg1: rg_dt = st.date_input("Audit Date:", date(2026, 5, 22))
-            with col_rg2: rg_src = st.text_input("Supplier/Vendor Corporate Name:", value="National AgriSupply Solutions Group")
-            with col_rg3: rg_dsc = st.text_input("Product Specification Name:", value="Organic Bio-Active Compound Fertilizer Mix")
+            with col_rg1: rg_date = st.date_input("Observation Posting Date:", datetime.now())
+            with col_rg2: rg_source = st.text_input("Supplier Vendor Market Entity:", value="AgriChem Suppliers")
+            with col_rg3: rg_desc = st.text_input("Item Particular Description Label:", value="NPK 17-17-17")
             
-            col_rg4, col_rg5 = st.columns(2)
-            with col_rg4: rg_qty = st.number_input("Standard Packaging Content Size Units:", min_value=1, value=1)
-            with col_rg5: rg_prc = st.number_input(f"Observed Present Unit Price ({c_symbol}):", min_value=0.0, value=3500.00)
+            col_rg4, col_rg5, col_rg6 = st.columns(3)
+            with col_rg4: rg_cat = st.selectbox("Input Group Classification Category Matcher:", st.session_state.expense_categories)
+            with col_rg5: rg_price = st.number_input(f"Observed Standard Market Price Index ({c_symbol}):", min_value=0.0, value=3200.00)
+            with col_rg6: rg_mode = st.selectbox("Payment Mode Reference Variant:", ["Cash", "M-Pesa", "Bank Transfer"])
             
-            if st.form_submit_button("Commit Catalog Line Entry to Table"):
+            if st.form_submit_button("Commit Reference Entry Row to Directory"):
                 new_id = int(st.session_state.registry_data["id"].max() + 1) if not st.session_state.registry_data.empty else 1
-                new_row = pd.DataFrame([{"id": new_id, "date": str(rg_dt), "source": rg_src, "description": rg_dsc, "project": "Reference Benchmark Space", "crop": "Multi-Crop Compatibility", "yield_units": rg_qty, "price": rg_prc, "income": 0, "other_income": 0, "total_income": 0, "paid": "Verified Look Up Object", "payment_mode": "N/A Look Up Entry", "payment_code": "REGISTRY-HASH-92384"}])
+                new_row = pd.DataFrame([{"id": new_id, "date": str(rg_date), "source": rg_source, "description": rg_desc, "project": "Reference Pool", "crop": "N/A", "yield_units": 1.0, "price": rg_price, "income": 0, "other_income": 0, "total_income": 0, "paid": "Yes", "payment_mode": rg_mode, "payment_code": f"REF-0{new_id}"}])
                 st.session_state.registry_data = pd.concat([st.session_state.registry_data, new_row], ignore_index=True)
-                st.success("Appended verified reference data configuration parameters successfully.")
+                st.success("Successfully written item baseline to reference directory catalog layout matrix!")
                 st.rerun()
 
-# 10. TAB: SYSTEM CONFIG
-elif current_tab == "⚙️ System Config":
+    st.dataframe(st.session_state.registry_data, use_container_width=True, hide_index=True)
+
+# 10. DYNAMIC CONFIGURATION WORKSPACE
+elif current_tab == "⚙️ Lists & Categories Config":
+    st.markdown('<div class="main-header">⚙️ Dynamic Configuration Engine Workspace</div>', unsafe_allow_html=True)
+    st.markdown('<div class="sub-header">Modify dropdown lookup listings across all application tracking matrices instantly.</div>', unsafe_allow_html=True)
+    
+    col_lc1, col_lc2, col_lc3 = st.columns(3)
+    
+    with col_lc1:
+        st.markdown("### 🌱 Crop Names Master List")
+        st.write(st.session_state.crop_names_list)
+        new_c_name = st.text_input("New Crop Asset Label Tag Name:", value="", key="add_cn_field")
+        if st.button("➕ Append Crop Name Asset", use_container_width=True):
+            if new_c_name and new_c_name not in st.session_state.crop_names_list:
+                st.session_state.crop_names_list.append(new_c_name)
+                st.success(f"Appended: {new_c_name}")
+                st.rerun()
+                
+    with col_lc2:
+        st.markdown("### 🌾 Crop Classification Types")
+        st.write(st.session_state.crop_types_list)
+        new_c_type = st.text_input("New Classification Category Label:", value="", key="add_ct_field")
+        if st.button("➕ Append Crop Category Asset", use_container_width=True):
+            if new_c_type and new_c_type not in st.session_state.crop_types_list:
+                st.session_state.crop_types_list.append(new_c_type)
+                st.success(f"Appended Category: {new_c_type}")
+                st.rerun()
+                
+    with col_lc3:
+        st.markdown("### 📉 Expense Overhead Classifications")
+        st.write(st.session_state.expense_categories)
+        new_ex_cat = st.text_input("New Expense Classification Label Group Name:", value="", key="add_ex_field")
+        if st.button("➕ Append Expense Category Overhead", use_container_width=True):
+            if new_ex_cat and new_ex_cat not in st.session_state.expense_categories:
+                st.session_state.expense_categories.append(new_ex_cat)
+                st.success(f"Appended Overhead Asset: {new_ex_cat}")
+                st.rerun()
+
+# 11. TAB: SYSTEM CONFIG (WITH USER PROVISIONING GATEWAY)
+elif current_tab == "🛠️ System Config":
     st.markdown('<div class="main-header">⚙️ System Configuration Profile Settings</div>', unsafe_allow_html=True)
     
-    with st.form("form_sys_config_save"):
-        st.subheader("Administrative Access Control")
-        st.text_input("Root Admin Identity Email Address:", value="admin@agrigrow.com")
-        st.text_input("Master Secure Access Passphrase:", type="password", value="password")
-        
-        st.markdown("---")
-        st.subheader("Global Settings & Localization Options")
-        
-        # Safe Mapping List
-        curr_options = ["USD ($)", "EUR (€)", "KES (KSh)", "GBP (£)", "CAD (C$)"]
-        
-        # Safeguard the index matching lookup
-        if st.session_state.currency in curr_options:
-            default_idx = curr_options.index(st.session_state.currency)
-        else:
-            default_idx = 2 # Default to KES if something went sideways
-        
-        sys_curr = st.selectbox("Primary Accounting Base Valuation Currency Dropdown Option:", curr_options, index=default_idx)
-        st.checkbox("Toggle Application Dark Mode Class Styling Theme", value=False)
-        st.selectbox("System Numeric Values Decimal Format Standard Profile:", ["1,234,567.89 (Standard Comma Separation Bracket Allocation)"])
-        st.checkbox("Enable Automated Server Outbound SMTP Transaction Alerts System Notifications", value=True)
-        
-        if st.form_submit_button("Save Core Configuration Changes"):
-            # Commit the exact matching option to state safely
-            st.session_state.currency = sys_curr
-            st.success("Successfully written updated localization preferences globally across runtime environment scopes.")
-            st.rerun()
+    col_sc1, col_sc2 = st.columns([1.2, 1])
+    
+    with col_sc1:
+        with st.form("form_sys_config_save"):
+            st.markdown("#### Localization & Base Settings")
+            sys_curr = st.selectbox("Primary Accounting Base Valuation Currency Dropdown Option:", ["USD ($)", "EUR (€)", "KES (KSh)", "GBP (£)"], index=2)
+            st.checkbox("Toggle Application Dark Mode Class Styling Theme", value=False)
+            st.selectbox("System Numeric Values Decimal Format Standard Profile:", ["1,234,567.89 (Standard Comma Separation Bracket Allocation)"])
+            st.checkbox("Enable Automated Server Outbound SMTP Transaction Alerts System Notifications", value=True)
+            
+            if st.form_submit_button("Save Core Configuration Changes", use_container_width=True):
+                st.session_state.currency = sys_curr
+                st.success("Preferences updated globally across runtime scopes.")
+                st.rerun()
+                
+    with col_sc2:
+        with st.form("form_add_new_system_user"):
+            st.markdown("#### 👥 Identity Access Control & User Provisioning Matrix")
+            new_u_email = st.text_input("New User Professional Corporate Email (UID):", value="operator@agrigrow.com")
+            new_u_pass = st.text_input("Secure Passphrase Credentials Allocation:", type="password", value="password123")
+            new_u_name = st.text_input("Full Employee Resource Identity Name Label:", value="Jane Doe")
+            new_u_role = st.selectbox("Assigned Security Level & Access Clearance Node:", ["Field Operations Lead", "Financial Officer", "Data Auditor Pro", "Farm Owner"])
+            
+            if st.form_submit_button("🔒 Append Authorized Identity Profile to Gateway", use_container_width=True):
+                if new_u_email in st.session_state.system_users_db:
+                    st.error("Identity Metric Conflict! An account with this email already exists inside core validation frames.")
+                elif not new_u_email or not new_u_pass or not new_u_name:
+                    st.warning("Data Validation Refusal. Ensure all core field elements are explicitly specified.")
+                else:
+                    st.session_state.system_users_db[new_u_email] = {
+                        "password": new_u_pass,
+                        "name": new_u_name,
+                        "role": new_u_role
+                    }
+                    st.success(f"Successfully provisioned corporate security framework entries for {new_u_name}!")
+                    st.rerun()
+                    
+        # View currently logged system credentials safely (minus passwords)
+        with st.expander("👁️ View Existing Authorized Profiles Matrix", expanded=False):
+            display_users = []
+            for em, info in st.session_state.system_users_db.items():
+                display_users.append({"Email Reference": em, "Identity Name": info["name"], "Security Role Profile Node": info["role"]})
+            st.dataframe(pd.DataFrame(display_users), use_container_width=True, hide_index=True)
